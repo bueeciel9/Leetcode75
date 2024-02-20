@@ -27,3 +27,28 @@ class Solution(object):
         
         # 남아 있는 당에 따라 승리 당을 반환
         return "Radiant" if radiant else "Dire"
+    
+    
+    class Solution:
+        def predictPartyVictory(self, senate):
+            q = deque(senate)
+            radiant, dire = 0, 0
+
+            while q:
+                s = q.popleft()
+                if s == 'R':
+                    if dire > 0:
+                        dire -= 1
+                    else:
+                        radiant += 1
+                        q.append(s)
+                else:  # s == 'D'
+                    if radiant > 0:
+                        radiant -= 1
+                    else:
+                        dire += 1
+                        q.append(s)
+
+                if not radiant or not dire:
+                    return "Radiant" if radiant else "Dire"
+            
