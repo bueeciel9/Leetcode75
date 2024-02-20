@@ -1,3 +1,5 @@
+from collections import deque
+
 class Solution(object):
     def predictPartyVictory(self, senate):
         """
@@ -29,26 +31,26 @@ class Solution(object):
         return "Radiant" if radiant else "Dire"
     
     
-    class Solution:
-        def predictPartyVictory(self, senate):
-            q = deque(senate)
-            radiant, dire = 0, 0
+    # class Solution:
+    #     def predictPartyVictory(self, senate):
+    #         q = deque(senate)
+    #         radiant, dire = 0, 0
 
-            while q:
-                s = q.popleft()
-                if s == 'R':
-                    if dire > 0:
-                        dire -= 1
-                    else:
-                        radiant += 1
-                        q.append(s)
-                else:  # s == 'D'
-                    if radiant > 0:
-                        radiant -= 1
-                    else:
-                        dire += 1
-                        q.append(s)
+    #         while q:
+    #             s = q.popleft()
+    #             if s == 'R':
+    #                 if dire > 0:
+    #                     dire -= 1
+    #                 else:
+    #                     radiant += 1
+    #                     q.append(s)
+    #             else:  # s == 'D'
+    #                 if radiant > 0:
+    #                     radiant -= 1
+    #                 else:
+    #                     dire += 1
+    #                     q.append(s)
 
-                if not radiant or not dire:
-                    return "Radiant" if radiant else "Dire"
+    #             if not radiant or not dire:
+    #                 return "Radiant" if radiant else "Dire"
             
